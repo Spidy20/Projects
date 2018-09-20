@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import minmax_scale
 
-quandl.ApiConfig.api_key = 'cEwafLSxcxfDwzNREWup'
+quandl.ApiConfig.api_key = ''
 Data=quandl.get('NSE/INFIBEAM')
 
 # DF=pd.read_csv('infibeam.csv')

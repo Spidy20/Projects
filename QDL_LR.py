@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 
-quandl.ApiConfig.api_key = 'cEwafLSxcxfDwzNREWup'
+quandl.ApiConfig.api_key = ''
 Data=quandl.get('NSE/INFIBEAM')
 
 DF=pd.read_csv('infibeam.csv')
