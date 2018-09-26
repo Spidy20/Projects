@@ -5,7 +5,7 @@ from urllib.request import  urlopen
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-mobile_video="http://192.168.1.102:8080/shot.jpg"
+mobile_video="http://192.168.43.1:8080/shot.jpg"
 
 
 while True:

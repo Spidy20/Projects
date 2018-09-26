@@ -1,25 +1,17 @@
 import  numpy as np
 import  cv2
-from urllib.request import  urlopen
 
-
-mobile_video="http://192.168.1.101:8080/shot.jpg"
+video=cv2.VideoCapture('road_car_view.mp4')
 
 while True:
-    img_resp = urlopen(mobile_video)
-    img_arr = np.array(bytearray(img_resp.read()), dtype=np.uint8)
-    img = cv2.imdecode(img_arr, -1)
-
-
-    # orig_frame=img.read()
-
-    # if not ret:
-    #     mobile_video = "http://192.168.1.101:8080/shot.jpg"
-    #     continue
-    frame=cv2.GaussianBlur(img,(5,5),0)
+    ret, orig_frame=video.read()
+    if not ret:
+        video = cv2.VideoCapture("road_car_view.mp4")
+        continue
+    frame=cv2.GaussianBlur(orig_frame,(5,5),0)
     hsv=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    low_yellow=np.array([30,90,110])
-    up_yellow=np.array([35, 255, 255])
+    low_yellow=np.array([20,100,110])
+    up_yellow=np.array([30, 255, 255])
     mask = cv2.inRange(hsv, low_yellow, up_yellow)
     edges = cv2.Canny(mask, 75, 150)
 
@@ -35,6 +27,5 @@ while True:
     key = cv2.waitKey(25)
     if key == 27:
         break
-img.release()
+video.release()
 cv2.destroyAllWindows()
-
