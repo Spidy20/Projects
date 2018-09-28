@@ -10,7 +10,7 @@ while True:
         continue
     frame=cv2.GaussianBlur(orig_frame,(5,5),0)
     hsv=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    low_yellow=np.array([20,100,110])
+    low_yellow=np.array([10,90,110])
     up_yellow=np.array([30, 255, 255])
     mask = cv2.inRange(hsv, low_yellow, up_yellow)
     edges = cv2.Canny(mask, 75, 150)

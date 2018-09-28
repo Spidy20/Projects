@@ -3,7 +3,7 @@ import  cv2
 from urllib.request import  urlopen
 
 
-mobile_video="http://192.168.1.101:8080/shot.jpg"
+mobile_video="http://192.168.1.102:8080/shot.jpg"
 
 while True:
     img_resp = urlopen(mobile_video)
@@ -12,7 +12,7 @@ while True:
 
     frame = cv2.GaussianBlur(img, (5, 5), 0)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    low_yellow = np.array([10,90, 110])
+    low_yellow = np.array([8,90, 110])
     up_yellow = np.array([30, 255, 255])
     mask = cv2.inRange(hsv, low_yellow, up_yellow)
     edges = cv2.Canny(mask, 75, 150)
